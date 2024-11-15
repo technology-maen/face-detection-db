@@ -1,7 +1,8 @@
 # importing the cv2 library
 import cv2
+from PIL import Image
 class face_capture() :
-    def __init__(self):
+    def __init__(self,target_file_name):
         #Opens Camera
         video = cv2.VideoCapture(0)
         # loading the haar case algorithm file into alg variable
@@ -20,15 +21,13 @@ class face_capture() :
         for x, y, w, h in faces:
             # crop the image to select only the face
             cropped_image = frame[y : y + h, x : x + w]
-            # loading the target image path into target_file_name variable  - replace <INSERT YOUR TARGET IMAGE NAME HERE> with the path to your target image
-            target_file_name = 'stored-faces/' + str(i) + '.jpg'
             cv2.imwrite(
-                target_file_name,
+                ('stored-faces/'+target_file_name+'.jpg'),
                 cropped_image,
             )
             i = i + 1
         video.release()
-        self.image = cropped_image
+        self.image = Image.open('stored-faces/'+target_file_name+'.jpg')
         self.filename = target_file_name
 
 
@@ -40,10 +39,11 @@ class face_video() :
         face_classifier = cv2.CascadeClassifier("../face-detection-db/xml/haarcascade_frontalface_default.xml")
         while True:
             ret, frame = video.read()
-            self.frame = frame
             faces = face_classifier.detectMultiScale(frame,1.1,12)
             for (x, y, width, height) in faces:
                 x2, y2 = x+ width, y+ height
+                cropped_image = frame[y : y + height, x : x + width]
+                self.frame = Image.fromarray(cropped_image)
                 cv2.rectangle(frame, (x, y), (x2, y2), (255, 0, 0), 3)
                 self.coord = [(x,y),(x2,y2),(255,0,0)]
             cv2.imshow('Detection', frame)
