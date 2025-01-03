@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>FaceDetection</class>
+ <widget class="QMainWindow" name="FaceDetection">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1096</width>
+    <height>851</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>200</width>
+    <height>200</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>5000</width>
+    <height>5000</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Face Detection</string>
+  </property>
+  <property name="windowIcon">
+   <iconset theme="QIcon::ThemeIcon::FolderOpen"/>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>1081</width>
+      <height>811</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="leftMargin">
+      <number>10</number>
+     </property>
+     <property name="topMargin">
+      <number>10</number>
+     </property>
+     <property name="rightMargin">
+      <number>10</number>
+     </property>
+     <property name="bottomMargin">
+      <number>10</number>
+     </property>
+     <item>
+      <widget class="QColumnView" name="columnView"/>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1096</width>
+     <height>37</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionAdd_person_to_DB"/>
+   </widget>
+   <widget class="QMenu" name="menuAbout">
+    <property name="title">
+     <string>&amp;About</string>
+    </property>
+    <addaction name="actionAbout_Face_Detection"/>
+   </widget>
+   <widget class="QMenu" name="menuCompare">
+    <property name="title">
+     <string>&amp;Compare</string>
+    </property>
+    <addaction name="actionCompare_image_from_File"/>
+    <addaction name="actionCompare_image_from_Camera"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuCompare"/>
+   <addaction name="menuAbout"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionAdd_person_to_DB">
+   <property name="text">
+    <string>&amp;Add person to DB</string>
+   </property>
+  </action>
+  <action name="actionAbout_Face_Detection">
+   <property name="text">
+    <string>&amp;About Face Detection</string>
+   </property>
+  </action>
+  <action name="actionCompare_image_from_File">
+   <property name="text">
+    <string>Compare image from File</string>
+   </property>
+  </action>
+  <action name="actionCompare_image_from_Camera">
+   <property name="text">
+    <string>Compare image from Camera</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

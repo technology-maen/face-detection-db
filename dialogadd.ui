@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>dialog</class>
+ <widget class="QDialog" name="dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>576</width>
+    <height>419</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Add Person to Database</string>
+  </property>
+  <widget class="QWidget" name="formLayoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>481</width>
+     <height>352</height>
+    </rect>
+   </property>
+   <layout class="QFormLayout" name="formLayout">
+    <property name="labelAlignment">
+     <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
+    </property>
+    <property name="formAlignment">
+     <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignTop</set>
+    </property>
+    <item row="0" column="0">
+     <widget class="QLabel" name="name">
+      <property name="text">
+       <string>Name</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="nameedit"/>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="id">
+      <property name="text">
+       <string>ID</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="idedit"/>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="fathername">
+      <property name="text">
+       <string>Father's name</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="fathernameedit"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="mothername">
+      <property name="text">
+       <string>Mother's name</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLineEdit" name="mothernamedit"/>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="fatherid">
+      <property name="text">
+       <string>Father's ID</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLineEdit" name="fatheridedit"/>
+    </item>
+    <item row="5" column="0">
+     <widget class="QLabel" name="motherid">
+      <property name="text">
+       <string>Mother's ID</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="1">
+     <widget class="QLineEdit" name="motheridedit"/>
+    </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="date">
+      <property name="text">
+       <string>Date</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QLineEdit" name="dateedit"/>
+    </item>
+    <item row="7" column="0">
+     <widget class="QPushButton" name="buttonsubmit">
+      <property name="text">
+       <string>Submit</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>nameedit</tabstop>
+  <tabstop>motheridedit</tabstop>
+  <tabstop>idedit</tabstop>
+  <tabstop>fathernameedit</tabstop>
+  <tabstop>fatheridedit</tabstop>
+  <tabstop>mothernamedit</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>
