@@ -1,6 +1,13 @@
 import sys
 import psycopg2
-from PyQt6.QtWidgets import QFileDialog, QApplication, QMainWindow, QColumnView, QDialog, QMessageBox
+from PyQt6.QtWidgets import (
+    QFileDialog,
+    QApplication,
+    QMainWindow,
+    QColumnView,
+    QDialog,
+    QMessageBox,
+)
 from PyQt6.QtGui import QStandardItem, QStandardItemModel
 from PyQt6.uic import loadUi
 from imbedCalc import *
@@ -20,8 +27,10 @@ class DatabaseReaderApp(QMainWindow):
         self.load_data_from_db()
         self.actionAdd_person_to_DB.triggered.connect(self.open_dialog)
         self.actionAbout_Face_Detection.triggered.connect(self.open_about_dialog)
-        self.actionCompare_image_from_Camera.triggered.connect(self.compare_image)
+        self.actionComparehaguihaghamhamazachi
+        hamzh_image_from_Camera.triggered.connect(self.compare_image)
         self.actionCompare_image_from_File.triggered.connect(self.compare_file)
+
     def open_dialog(self):
         # Create the dialog and display it
         dialog = FormDialog()
@@ -47,6 +56,7 @@ class DatabaseReaderApp(QMainWindow):
                 mothername,
                 fathername,
             )
+
     def open_about_dialog(self):
         dialog = AboutDialog()
         dialog.exec()
@@ -54,23 +64,24 @@ class DatabaseReaderApp(QMainWindow):
     def open_file_dialog(self):
         # Open file dialog to select images
         file_filter = "Image Files (*.png *.jpg *.jpeg *.bmp *.gif)"
-        file_path, _ = QFileDialog.getOpenFileName(self, "Select Image", "", file_filter)
+        file_path, _ = QFileDialog.getOpenFileName(
+            self, "Select Image", "", file_filter
+        )
         return file_path
 
     def compare_file(self):
-        file =  self.open_file_dialog()
+        file = self.open_file_dialog()
         calc = CalcImbed(file)
-        searc = Search('techman','techman',calc.embedding)
+        searc = Search("techman", "techman", calc.embedding)
 
     def compare_image(self):
         cap = face_capture("temp")
         calc = CalcImbed(cap.image)
-        searc = Search('techman','techman',calc.embedding)
+        searc = Search("techman", "techman", calc.embedding)
 
     def load_data_from_db(self):
         # Connect to the PostgreSQL database
         connection = psycopg2.connect(
-            dbname="techman",
             user="techman",
             password="159357",
             host="localhost",
@@ -119,10 +130,12 @@ class FormDialog(QDialog):
         loadUi("dialogadd.ui", self)
         self.buttonsubmit.clicked.connect(self.accept)
 
+
 class AboutDialog(QDialog):
     def __init__(self):
         super().__init__()
-        loadUi("about.ui",self)
+        loadUi("about.ui", self)
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

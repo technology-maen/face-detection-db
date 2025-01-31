@@ -7,6 +7,7 @@ import os
 from PyQt6.QtWidgets import QApplication, QDialog, QVBoxLayout, QLabel, QPushButton
 from PyQt6.QtCore import Qt
 
+
 class InfoDialog(QDialog):
     def __init__(self, title: str, message: str):
         super().__init__()
@@ -30,6 +31,7 @@ class InfoDialog(QDialog):
 
         # Set layout
         self.setLayout(layout)
+
 
 class AddImagetoDBFromFolder:
     def __init__(self, dbname, user, folder):
@@ -80,14 +82,14 @@ class AddImagetoDB:
             cur.execute(
                 "INSERT INTO pictures values (%s,%s,%s,%s,%s,%s,%s,%s)",
                 (
-                    name,
-                    embedding[0].tolist(),
                     ID,
-                    bday,
+                    name,
                     fatherid,
                     motherid,
                     mothername,
                     fathername,
+                    embedding[0].tolist(),
+                    bday,
                 ),
             )
         except psycopg2.errors.UniqueViolation:
@@ -116,7 +118,10 @@ class Search:
         )
         rows = cur.fetchall()
         for row in rows:
-            dialog = InfoDialog(f"Found {row[0]}",f"Who's ID is {row[2]}. and father's name is {row[7]} and mother's name is {row[6]} and his father's ID is {row[5]} and his mother's ID is {row[4]}")
+            dialog = InfoDialog(
+                f"Found {row[0]}",
+                f"Who's ID is {row[2]}. and father's name is {row[7]} and mother's name is {row[6]} and his father's ID is {row[5]} and his mother's ID is {row[4]}",
+            )
             dialog.exec()
             print(
                 f"Found {row[0]}. Who's ID is {row[2]}. and father's name is {row[7]} and mother's name is {row[6]} and his father's ID is {row[5]} and his mother's ID is {row[4]}"
