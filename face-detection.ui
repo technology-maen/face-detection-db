@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1096</width>
+    <width>1089</width>
     <height>851</height>
    </rect>
   </property>
@@ -29,6 +29,15 @@
    <iconset theme="QIcon::ThemeIcon::FolderOpen"/>
   </property>
   <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
@@ -62,7 +71,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1096</width>
+     <width>1089</width>
      <height>37</height>
     </rect>
    </property>
@@ -71,6 +80,7 @@
      <string>&amp;File</string>
     </property>
     <addaction name="actionAdd_person_to_DB"/>
+    <addaction name="actionRefresh"/>
    </widget>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
@@ -102,12 +112,17 @@
   </action>
   <action name="actionCompare_image_from_File">
    <property name="text">
-    <string>Compare image from File</string>
+    <string>&amp;Compare image from File</string>
    </property>
   </action>
   <action name="actionCompare_image_from_Camera">
    <property name="text">
-    <string>Compare image from Camera</string>
+    <string>Compare &amp;image from Camera</string>
+   </property>
+  </action>
+  <action name="actionRefresh">
+   <property name="text">
+    <string>&amp;Refresh</string>
    </property>
   </action>
  </widget>

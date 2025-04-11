@@ -11,6 +11,7 @@ from PyQt6.QtCore import Qt
 class InfoDialog(QDialog):
     def __init__(self, title: str, message: str):
         super().__init__()
+        # hamza is hamza
 
         self.setWindowTitle(title)
         self.setFixedSize(300, 150)  # Set a fixed size for the dialog
@@ -52,7 +53,8 @@ class AddImagetoDBFromFolder:
                     "INSERT INTO pictures values (%s,%s)", (name, embedding[0].tolist())
                 )
             except psycopg2.errors.UniqueViolation:
-                print(f"{filename} exists")
+                errorr = InfoDialog("Unexcpected Error", f"{filename} exists")
+                errorr.exec()
             print(filename)
         conn.commit()
 
@@ -92,10 +94,14 @@ class AddImagetoDB:
                     bday,
                 ),
             )
+            conn.commit()
         except psycopg2.errors.UniqueViolation:
-            print(f"{name} already exists")
+            errorr = InfoDialog("Unexcpected Error", f"{name} exists")
+            errorr.exec()
             pass
-        conn.commit()
+        except:
+            error = InfoDialog(f"Unexcepected Error Occured", f"Contact your Sysadmin")
+            error.exec()
 
 
 class CalcImbed:
@@ -119,12 +125,12 @@ class Search:
         rows = cur.fetchall()
         for row in rows:
             dialog = InfoDialog(
-                f"Found {row[0]}",
-                f"Who's ID is {row[2]}. and father's name is {row[7]} and mother's name is {row[6]} and his father's ID is {row[5]} and his mother's ID is {row[4]}",
+                f"Found {row[1]}",
+                f"Who's ID is {row[0]}. and father's name is {row[5]} and mother's name is {row[4]} and his father's ID is {row[2]} and his mother's ID is {row[3]}",
             )
             dialog.exec()
             print(
-                f"Found {row[0]}. Who's ID is {row[2]}. and father's name is {row[7]} and mother's name is {row[6]} and his father's ID is {row[5]} and his mother's ID is {row[4]}"
+                f"Found {row[1]}. Who's ID is {row[0]}. and father's name is {row[5]} and mother's name is {row[4]} and his father's ID is {row[2]} and his mother's ID is {row[3]}"
             )
             cv2.imshow("Image", cv2.imread(f"stored-faces/{row[0]}.jpg"))
             cv2.waitKey(0)
